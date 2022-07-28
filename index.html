@@ -12,7 +12,7 @@
 
     <div class="background"></div>
 
-    <div id="container">
+    <div id="app">
         <div id="contact-side">
             <header id="profile">
                 <div class="profile-item">
@@ -44,17 +44,26 @@
                 <input type="search" name="search" id="search">
             </div>
 
-            <div id="contacts">
-                <div id="contact">
+
+
+            <div  id="contacts">
+                <div v-for="contact in contacts" id="contact">
                     <div class="contact-image">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img v-bind:src=" 'img/avatar' + contact.avatar + '.jpg' " v-bind:alt="contact.name">
                     </div>
                     <div class="contact-text">
-                        <h4>Nome</h4>
+                        <h4>{{contact.name}}</h4>
                         <p>Ultimo messaggio inviato</p>
+                    </div>
+                    <div>
+                        <p>12:00</p>
                     </div>
                 </div>
             </div>
+
+
+
+
         </div>
 
         <div id="chat-side">
