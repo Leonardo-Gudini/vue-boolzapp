@@ -92,7 +92,7 @@ body{
 #search input{
     width: 80%;
     height: 100%;
-    border: 1px solid #999;
+    border: 1px solid #eee;
     background-color: white;
 }
 
@@ -102,7 +102,23 @@ body{
     align-items: center;
     justify-content: center;
     width: 20%;
-    border: 1px solid #999;
+    border: 1px solid #eee;
+    color: gray;
+}
+
+#contacts{
+    height: calc(100% - 40px - 120px);
+    overflow: auto;
+}
+
+#contact{
+    display: flex;
+    padding: 10px;
+}
+
+#contact img{
+    height: 50px;
+    border-radius: 50%;
 }
 
 /* CHAT SIDE */
