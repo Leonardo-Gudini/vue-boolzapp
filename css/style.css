@@ -38,30 +38,107 @@ body{
     height: 100%;
 }
 
-#my-profile{
+#profile{
     display: flex;
     justify-content: space-between;
     height: 60px;
-    background-color: #F1F2F5;
+    background-color: #E9E9E9;
 }
 
-.my-profile-item{
+.profile-item{
     display: flex;
     align-items: center;
     margin-right: 10px;
 }
-.my-profile-item>*{
+.profile-item>*{
     margin: 0px 10px;
 }
-.my-profile-item img{
+.profile-item img{
     height: 50px;
     border-radius: 50%;
 }
 
+#notifications{
+    display: flex;
+    height: 60px;
+    background-color: #A7D9FA;
+    align-items: center;
+    padding: 10px;
+}
+
+#notifications .bell{
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.bell i{
+    line-height: 40px;
+    color: #A7D9FA;
+    font-size: 18px;
+}
+
+#search{
+    display: flex;
+    height: 40px;
+    background-color: #FAFAFA;
+    text-align: center;
+    padding: 5px;
+}
+
+#search input{
+    width: 80%;
+    height: 100%;
+    border: 1px solid #999;
+    background-color: white;
+}
+
+#search .glass{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    border: 1px solid #999;
+}
+
 /* CHAT SIDE */
 #chat-side{
-    background-color: #E9E9E9;
+    /* background-color: #E9E9E9; */
     width: calc(100%/3*2);
     height: 100%;
 }
 
+#message-area{
+    background-image: url("../img/mine.jpg");
+    background-repeat: repeat;
+    background-size:auto;
+    height: calc(100% - 120px);
+}
+
+#input-message-area{
+    background-color: #F1EDE9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px;
+}
+
+#input-message-area input{
+    width: 80%;
+    height: 80%;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#input-message-area i{
+    width: 10%;
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+}
