@@ -168,6 +168,7 @@ var app = new Vue({
             }
         ],
         newMessage: "",
+        search: "",
     },
 
     methods:{
@@ -194,6 +195,14 @@ var app = new Vue({
                 };
                 this.contacts[this.contactSelected].messages.push(newMessageOgg)
             }, 1000)
+        }
+    },
+
+    computed: {
+        filteredContacts: function(){
+            return this.contacts.filter((contact) => {
+                return contact.name.toLowerCase().match(this.search.toLowerCase())
+            })
         }
     }
 });
