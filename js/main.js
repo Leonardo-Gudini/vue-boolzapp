@@ -1,3 +1,5 @@
+var DateTime = luxon.DateTime;
+
 var app = new Vue({
     el: "#app",
     data: {
@@ -175,12 +177,23 @@ var app = new Vue({
 
         sendMessage(){
             const newMessageOgg = {
-                date: "",
+                date: DateTime.now().toFormat("dd/LL/y HH:mm"),
                 message: this.newMessage,
-                status: "sent"
+                status: "sent",
             };
 
-            this.contacts[this.contactSelected].messages.push(newMessageOgg)
+            this.newMessage = "";
+            this.contacts[this.contactSelected].messages.push(newMessageOgg);
+            
+
+            setTimeout(()=>{
+                const newMessageOgg = {
+                    date: DateTime.now().toFormat("dd/LL/y HH:mm"),
+                    message: "ok",
+                    status: "received"
+                };
+                this.contacts[this.contactSelected].messages.push(newMessageOgg)
+            }, 1000)
         }
     }
-}); 
+});
