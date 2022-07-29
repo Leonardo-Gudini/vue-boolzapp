@@ -1,7 +1,8 @@
 var app = new Vue({
     el: "#app",
     data: {
-        contacts: [ 
+        contactSelected: 0,
+        contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
@@ -163,6 +164,23 @@ var app = new Vue({
                                 }
                 ]
             }
-        ]
+        ],
+        newMessage: "",
+    },
+
+    methods:{
+        setContactSelected(index){
+            this.contactSelected = index;
+        },
+
+        sendMessage(){
+            const newMessageOgg = {
+                date: "",
+                message: this.newMessage,
+                status: "sent"
+            };
+
+            this.contacts[this.contactSelected].messages.push(newMessageOgg)
+        }
     }
 }); 

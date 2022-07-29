@@ -47,7 +47,7 @@
 
 
             <div  id="contacts">
-                <div v-for="contact in contacts" id="contact">
+                <div @click="setContactSelected(index)" v-for="(contact, index) in contacts" id="contact" :class=" (index == contactSelected)? 'active':''">
                     <div class="contact-image">
                         <img v-bind:src=" 'img/avatar' + contact.avatar + '.jpg' " v-bind:alt="contact.name">
                     </div>
@@ -67,10 +67,12 @@
         </div>
 
         <div id="chat-side">
+
+
             <header id="profile">
                 <div class="profile-item">
-                    <img src="img/avatar_io.jpg" alt="profile-pic">
-                    <h4>Contatto</h4>
+                    <img :src='"img/avatar" + contacts[contactSelected].avatar + ".jpg"' alt="contacts[contactSelected].name">
+                    <h4>{{contacts[contactSelected].name}}</h4>
                 </div>
 
                 <div class="profile-item">
@@ -82,12 +84,19 @@
 
             <div id="message-area">
 
+                <div v-for="(message, index) in contacts[contactSelected].messages" :class="'msg ' + message.status">
+                    <div class="msg-text">{{message.message}}</div>
+                    <div class="msg-time">{{message.date}}</div>
+                </div>
+
+
+
             </div>
 
             <div id="input-message-area">
                 <i class="fa-regular fa-face-smile"></i>
 
-                <input type="text" name="message" id="message" placeholder="Scrivi un messaggio">
+                <input @keyup.enter="sendMessage()" v-model="newMessage" type="text" name="message" id="message" placeholder="Scrivi un messaggio">
 
                 <i class="fa-solid fa-microphone"></i>
             </div>
